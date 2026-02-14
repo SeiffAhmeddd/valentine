@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* Mobile viewport fix */
+    background-color: #ffe6e6;
+    /* Soft pink */
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+    /* Prevent scrollbars when button moves */
+    position: relative;
+    /* Context for absolute pseudo-elements */
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff4d6d;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    flex-wrap: wrap;
+    /* Allow buttons to stack if screen is very small */
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: bold;
+    -webkit-tap-highlight-color: transparent;
+    /* Remove highlight on mobile tap */
+}
+
+#yes-btn {
+    background-color: #4ade80;
+    /* Nice Green */
+    color: white;
+    box-shadow: 0 4px 15px rgba(74, 222, 128, 0.4);
+}
+
+#yes-btn:hover,
+#yes-btn:active {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(74, 222, 128, 0.6);
+}
+
+#no-btn {
+    background-color: #ff4d6d;
+    /* Red/Pink */
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    position: relative;
+    z-index: 20;
+    /* Ensure it stays above other elements when moving */
+}
+
+#next-btn {
+    background-color: #ff4d6d;
+    /* Matching the theme */
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+    margin-top: 20px;
+}
+
+#next-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 77, 109, 0.6);
+}
+
+/* Success Message */
+.hidden {
+    display: none;
+}
+
+#message {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#message h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+}
+
+#message p {
+    color: #888;
+    font-size: 1.2rem;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Final Surprise */
+#final-surprise {
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#final-surprise img {
+    max-width: 100%;
+    max-height: 50vh;
+    /* Limit height so it fits on screen */
+    width: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain;
+    /* Ensure image isn't cropped */
+    border-radius: 15px;
+    margin-top: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Floating Hearts Background Animation */
+body::before {
+    content: "❤️";
+    position: absolute;
+    bottom: -10%;
+    left: 10%;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: floatUp 10s infinite linear;
+    z-index: 1;
+}
+
+body::after {
+    content: "💖";
+    position: absolute;
+    bottom: -10%;
+    right: 15%;
+    font-size: 3rem;
+    opacity: 0.5;
+    animation: floatUp 15s infinite linear reverse;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+.valentine-text {
+    font-family: 'Pacifico', cursive;
+    color: #ff4d6d;
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    line-height: normal;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 600px) {
+    .container {
+        padding: 1.5rem;
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 2rem;
+        /* Smaller font for mobile title */
+        margin-bottom: 1.5rem;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    #message h1 {
+        font-size: 1.8rem;
+    }
+
+    .valentine-text {
+        font-size: 1.8rem;
+    }
+}
